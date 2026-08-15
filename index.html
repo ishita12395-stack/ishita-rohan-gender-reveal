@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ishita & Rohan | A Secret in the Garden</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+:root{--ink:#40373c;--muted:#71686d;--pink:#df7fa3;--blue:#73afd0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:'Montserrat',Arial,sans-serif;background:radial-gradient(circle at 5% 10%,rgba(247,190,208,.55),transparent 28%),radial-gradient(circle at 95% 15%,rgba(168,211,232,.55),transparent 30%),linear-gradient(135deg,#fff6f8,#fffdf9 50%,#f2faff);overflow-x:hidden}
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(135deg,rgba(247,190,208,.72),rgba(255,250,247,.72) 48%,rgba(177,215,234,.78))}
+.garden-art{position:absolute;inset:0;width:100%;height:100%;z-index:0}.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,255,255,.05),rgba(255,255,255,.30));z-index:1;pointer-events:none}
+.hero-inner{position:relative;z-index:3;width:min(760px,94%);padding:55px 35px;text-align:center;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.9);border-radius:38px;box-shadow:0 25px 80px rgba(103,76,87,.22);animation:fadeIn 1.2s ease}
+.eyebrow{display:inline-block;padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.85);color:#bd5f80;font-size:10px;letter-spacing:3px;text-transform:uppercase}
+h1{margin:28px 0 20px;font-family:'Cormorant Garamond',serif;font-size:clamp(65px,12vw,120px);line-height:.75;font-weight:600;color:#493e44;text-shadow:0 4px 25px rgba(255,255,255,.9)}
+h1 span{display:block;margin:20px 0;font-size:.38em;font-weight:400;font-style:italic;color:#c45f83}
+.subtitle{font-family:'Cormorant Garamond',serif;font-size:32px;font-style:italic;margin-bottom:25px}
+.date{margin:10px;font-size:12px;letter-spacing:3px;text-transform:uppercase}.date.pink{color:#bd5b7c}.date.blue{color:#4e8fb5}
+.enter{display:inline-block;margin-top:25px;padding:15px 30px;border-radius:999px;color:white;text-decoration:none;font-size:11px;letter-spacing:1.5px;background:linear-gradient(90deg,#d56f95,#65a8ca);box-shadow:0 10px 30px rgba(150,90,115,.25);transition:.25s}.enter:hover{transform:translateY(-3px)}
+nav{position:sticky;top:0;z-index:20;display:flex;justify-content:center;gap:3px;padding:10px;overflow-x:auto;background:rgba(255,250,247,.92);backdrop-filter:blur(14px);border-bottom:1px solid #eadde0}
+nav a{padding:10px 13px;color:var(--ink);text-decoration:none;font-size:10px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}nav a:hover{color:#c55f82}
+main{max-width:1000px;margin:auto;padding:45px 18px 80px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{position:relative;padding:32px;overflow:hidden;background:rgba(255,255,255,.90);backdrop-filter:blur(10px);border:1px solid white;border-radius:28px;box-shadow:0 15px 45px rgba(100,75,85,.10)}
+.card::after{content:"✦";position:absolute;right:20px;top:15px;color:#e69bb5;opacity:.35;font-size:25px}.full{grid-column:1/-1}.icon{font-size:29px}
+.card h2{margin:8px 0 12px;font-family:'Cormorant Garamond',serif;font-size:37px}.card p{color:var(--muted);font-size:14px;line-height:1.85}.big{font-family:'Cormorant Garamond',serif;font-size:50px;color:#c96184}
+.maps{display:inline-block;margin-top:8px;padding:12px 18px;border-radius:999px;color:var(--ink);text-decoration:none;font-size:12px;background:linear-gradient(90deg,#f7dce5,#dceef7)}
+.teams{display:flex;gap:12px;margin-top:20px}.team{flex:1;padding:17px;border-radius:18px;border:2px solid #eee;background:white;font:inherit;cursor:pointer;transition:.25s}
+.team.girl:hover,.team.girl.selected{background:#f9dce7;border-color:#df7fa3;transform:translateY(-2px)}.team.boy:hover,.team.boy.selected{background:#dcecf6;border-color:#73afd0;transform:translateY(-2px)}
+.notice{text-align:center;padding:48px 30px;background:radial-gradient(circle at 10% 50%,rgba(237,157,188,.30),transparent 30%),radial-gradient(circle at 90% 50%,rgba(145,196,221,.35),transparent 30%),rgba(255,255,255,.94)}
+.notice h2{font-size:clamp(38px,6vw,55px)}.notice .big{color:#5798bc;font-size:65px}
+form{display:grid;gap:13px;margin-top:20px}input,select,textarea{width:100%;padding:15px;border:1px solid #ddd4d8;border-radius:13px;background:white;font:14px 'Montserrat';color:var(--ink)}textarea{min-height:90px}
+.submit{padding:16px;border:0;border-radius:999px;background:linear-gradient(90deg,#d56f95,#65a8ca);color:white;font:600 14px 'Montserrat';letter-spacing:1px;cursor:pointer}.success{display:none;margin-top:12px;padding:15px;border-radius:13px;background:#edf7ef;font-size:13px}
+footer{padding:45px 20px;text-align:center;color:#71686d;font:30px 'Cormorant Garamond',serif}footer small{font:12px 'Montserrat'}
+@keyframes fadeIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+@media(max-width:680px){.hero{min-height:100svh}.hero-inner{padding:42px 20px}h1{font-size:72px}.subtitle{font-size:28px}.grid{grid-template-columns:1fr}.full{grid-column:auto}.teams{flex-direction:column}nav{justify-content:flex-start}}
+</style>
+</head>
+<body>
+
+<section class="hero" id="home">
+<svg class="garden-art" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f7c7d8"/><stop offset="48%" stop-color="#fff7f7"/><stop offset="100%" stop-color="#cfe8f4"/></linearGradient>
+<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d6e6d2"/><stop offset="100%" stop-color="#9fbd9d"/></linearGradient>
+<radialGradient id="pinkGlow"><stop offset="0%" stop-color="#f6a9c3" stop-opacity=".8"/><stop offset="100%" stop-color="#f6a9c3" stop-opacity="0"/></radialGradient>
+<radialGradient id="blueGlow"><stop offset="0%" stop-color="#9bd0e8" stop-opacity=".8"/><stop offset="100%" stop-color="#9bd0e8" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="1000" fill="url(#sky)"/>
+<circle cx="170" cy="260" r="310" fill="url(#pinkGlow)"/><circle cx="1430" cy="280" r="330" fill="url(#blueGlow)"/>
+<path d="M0 780 Q180 650 340 770 T700 750 T1050 770 T1400 720 T1600 770 L1600 1000 L0 1000Z" fill="url(#ground)" opacity=".8"/>
+<path d="M40 930 C130 760 145 570 105 390 C80 280 125 190 210 120" fill="none" stroke="#789876" stroke-width="18" stroke-linecap="round" opacity=".65"/>
+<path d="M1560 930 C1460 770 1465 560 1500 410 C1520 310 1470 205 1400 130" fill="none" stroke="#789876" stroke-width="18" stroke-linecap="round" opacity=".65"/>
+
+<g opacity=".88">
+<g transform="translate(155 250)"><circle r="28" fill="#e986a9"/><circle cx="-32" r="25" fill="#f4adc3"/><circle cx="32" r="25" fill="#f4adc3"/><circle cy="-32" r="25" fill="#f4adc3"/><circle cy="32" r="25" fill="#f4adc3"/><circle r="12" fill="#e8b45d"/></g>
+<g transform="translate(270 380)"><circle r="25" fill="#e37b9e"/><circle cx="-28" r="22" fill="#f5b1c7"/><circle cx="28" r="22" fill="#f5b1c7"/><circle cy="-28" r="22" fill="#f5b1c7"/><circle cy="28" r="22" fill="#f5b1c7"/><circle r="10" fill="#e7ae57"/></g>
+<g transform="translate(85 520)"><circle r="22" fill="#d96e95"/><circle cx="-25" r="20" fill="#f3a8c0"/><circle cx="25" r="20" fill="#f3a8c0"/><circle cy="-25" r="20" fill="#f3a8c0"/><circle cy="25" r="20" fill="#f3a8c0"/><circle r="9" fill="#e4a94f"/></g>
+</g>
+
+<g opacity=".9">
+<g transform="translate(1440 250)"><circle r="28" fill="#77afd0"/><circle cx="-32" r="25" fill="#a7d4e8"/><circle cx="32" r="25" fill="#a7d4e8"/><circle cy="-32" r="25" fill="#a7d4e8"/><circle cy="32" r="25" fill="#a7d4e8"/><circle r="12" fill="#e8b45d"/></g>
+<g transform="translate(1330 390)"><circle r="25" fill="#69a5c8"/><circle cx="-28" r="22" fill="#a4d1e5"/><circle cx="28" r="22" fill="#a4d1e5"/><circle cy="-28" r="22" fill="#a4d1e5"/><circle cy="28" r="22" fill="#a4d1e5"/><circle r="10" fill="#e5ad54"/></g>
+<g transform="translate(1510 540)"><circle r="22" fill="#659fc3"/><circle cx="-25" r="20" fill="#a0cfe5"/><circle cx="25" r="20" fill="#a0cfe5"/><circle cy="-25" r="20" fill="#a0cfe5"/><circle cy="25" r="20" fill="#a0cfe5"/><circle r="9" fill="#e5ad54"/></g>
+</g>
+
+<g transform="translate(800 655)" opacity=".92">
+<ellipse cx="0" cy="180" rx="150" ry="35" fill="#78917e" opacity=".25"/>
+<circle cx="-80" cy="-75" r="50" fill="#b98d73"/><circle cx="80" cy="-75" r="50" fill="#b98d73"/>
+<circle cx="-80" cy="-75" r="30" fill="#e1bca7"/><circle cx="80" cy="-75" r="30" fill="#e1bca7"/>
+<circle cx="0" cy="-30" r="105" fill="#c9a084"/><ellipse cx="0" cy="10" rx="55" ry="43" fill="#e5c3ae"/>
+<circle cx="-35" cy="-45" r="9" fill="#493b36"/><circle cx="35" cy="-45" r="9" fill="#493b36"/>
+<ellipse cx="0" cy="0" rx="14" ry="10" fill="#59443c"/>
+<path d="M0 8 Q0 30 -22 31 M0 8 Q0 30 22 31" fill="none" stroke="#59443c" stroke-width="5" stroke-linecap="round"/>
+<ellipse cx="0" cy="105" rx="120" ry="125" fill="#c9a084"/><ellipse cx="0" cy="115" rx="75" ry="80" fill="#e5c3ae"/>
+<ellipse cx="-115" cy="105" rx="35" ry="70" transform="rotate(25 -115 105)" fill="#b98d73"/>
+<ellipse cx="115" cy="105" rx="35" ry="70" transform="rotate(-25 115 105)" fill="#b98d73"/>
+<path d="M0 105 C-25 80 -58 115 0 150 C58 115 25 80 0 105Z" fill="#e98aaa"/>
+</g>
+
+<g opacity=".7">
+<g transform="translate(540 260)"><ellipse cx="-15" rx="22" ry="14" fill="#e98bab" transform="rotate(-30)"/><ellipse cx="15" rx="22" ry="14" fill="#e98bab" transform="rotate(30)"/><ellipse rx="5" ry="18" fill="#715b62"/></g>
+<g transform="translate(1080 300)"><ellipse cx="-15" rx="22" ry="14" fill="#79b5d3" transform="rotate(-30)"/><ellipse cx="15" rx="22" ry="14" fill="#79b5d3" transform="rotate(30)"/><ellipse rx="5" ry="18" fill="#715b62"/></g>
+</g>
+<g fill="#fff" opacity=".75"><text x="390" y="180" font-size="38">✦</text><text x="1190" y="190" font-size="32">✦</text><text x="470" y="520" font-size="25">✧</text><text x="1150" y="510" font-size="25">✧</text></g>
+</svg>
+
+<div class="hero-inner">
+<div class="eyebrow">Ishita & Rohan invite you to</div>
+<h1>A Secret<span>in the</span>Garden</h1>
+<div class="subtitle">Boy or Girl?<br>Come find out with us.</div>
+<div class="date pink">30 August 2026</div>
+<div class="date blue">2:00 PM – 4:30 PM</div>
+<a class="enter" href="#details">Enter the celebration ✦</a>
+</div>
+</section>
+
+<nav>
+<a href="#details">Event</a><a href="#location">Location</a><a href="#dress">Dress Code</a><a href="#time">Timing</a><a href="#reveal">Reveal</a><a href="#rsvp">RSVP</a>
+</nav>
+
+<main><div class="grid">
+
+<section class="card" id="details">
+<div class="icon">💕</div><h2>A Very Special Gathering</h2>
+<p>This is a small and intimate celebration with some of the people who are especially close to us.</p>
+<p>We have intentionally kept the guest list limited so we can enjoy this beautiful moment together.</p>
+<p>We kindly ask that photos and videos from the celebration aren't shared on social media yet.</p>
+<p>We'd love to keep this moment personal and private until we're ready to share the big news.</p>
+</section>
+
+<section class="card" id="location">
+<div class="icon">🌿</div><h2>Our Little Garden</h2>
+<p>We're celebrating outdoors at our home, surrounded by our favourite people.</p>
+<p><strong>5791 Vanderneuk Road<br>Nanaimo, BC</strong></p>
+<p>Outdoor event — please dress comfortably for the weather.</p>
+<a class="maps" href="https://www.google.com/maps/search/?api=1&query=5791+Vanderneuk+Road%2C+Nanaimo%2C+BC" target="_blank">📍 Get Directions</a>
+</section>
+
+<section class="card" id="dress">
+<div class="icon">👗</div><h2>Garden Party + Pick Your Team</h2>
+<p>Come dressed for an afternoon in the garden and wear the colour of your prediction!</p>
+<p>💗 <strong>Team Pink</strong><br>Pink • Blush • Lavender</p>
+<p>💙 <strong>Team Blue</strong><br>Blue • Baby Blue • Sage</p>
+<p><em>Think pretty, comfortable and garden-ready!</em></p>
+<div class="teams"><button class="team girl" onclick="pickTeam(this,'girl')">💗 Team Girl</button><button class="team boy" onclick="pickTeam(this,'boy')">💙 Team Boy</button></div>
+<p id="prediction"></p>
+</section>
+
+<section class="card" id="time">
+<div class="icon">🥂</div><h2>Let the Celebration Begin</h2>
+<div class="big">2:00 – 4:30 PM</div>
+<p>Come hungry for a little fun!</p>
+<p>We'll have light snacks, drinks, games, baby predictions and lots of memories.</p>
+</section>
+
+<section class="card full notice" id="reveal">
+<div class="icon">✨ 🪄 ✨</div><h2>The Moment We've Been Waiting For…</h2>
+<div class="big">3:00 PM</div>
+<p><strong>THE BIG REVEAL!</strong></p>
+<p>And once we discover whether Baby is a little girl or boy…</p>
+<p>🎂 Cake Cutting &nbsp; • &nbsp; 🥳 Celebration &nbsp; • &nbsp; 📸 Photos</p>
+</section>
+
+<section class="card" id="rsvp">
+<div class="icon">💌</div><h2>Will You Join Us?</h2>
+<p>We’d love to celebrate this special moment with you.</p>
+<p><strong>Please RSVP by August 22</strong></p>
+<p class="rsvp-note">Choose your team, then tap RSVP. Your prediction will be passed into our Typeform.</p>
+<div class="teams rsvp-teams">
+<button id="teamPink" class="team girl" type="button" onclick="selectTeam('Team Pink')">💗 Team Pink</button>
+<button id="teamBlue" class="team boy" type="button" onclick="selectTeam('Team Blue')">💙 Team Blue</button>
+</div>
+<p id="prediction"></p>
+<button class="submit" type="button" onclick="openTypeform()">💌 RSVP Now ✦</button>
+<div class="success" id="success"></div>
+</section>
+
+</div></main>
+
+<footer>With love, Ishita & Rohan ✦<br><small>We can't wait to celebrate with you.</small></footer>
+
+<script>
+let selectedTeam='';
+function selectTeam(team){
+  selectedTeam=team;
+  document.querySelectorAll('.rsvp-teams .team').forEach(item=>item.classList.remove('selected'));
+  document.getElementById(team==='Team Pink'?'teamPink':'teamBlue').classList.add('selected');
+  document.getElementById('prediction').textContent = team==='Team Pink'
+    ? '💗 Prediction locked! You’re on Team Pink. Now let’s see if you’re right… 👀'
+    : '💙 Prediction locked! You’re on Team Blue. Now let’s see if you’re right… 👀';
+}
+function openTypeform(){
+  const team=selectedTeam;
+  const url='https://form.typeform.com/to/LzZ5W0zp'+(team?'#team='+encodeURIComponent(team):'');
+  window.location.href=url;
+}
+</script>
+</body>
+</html>
