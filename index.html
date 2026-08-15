@@ -170,10 +170,8 @@ function selectTeam(team){
     ? '💗 Prediction locked! You’re on Team Pink. Now let’s see if you’re right… 👀'
     : '💙 Prediction locked! You’re on Team Blue. Now let’s see if you’re right… 👀';
 }
-function openTypeform(){
-  const team=selectedTeam;
-  const url='https://form.typeform.com/to/LzZ5W0zp'+(team?'?team='+encodeURIComponent(team):'');
-  window.location.href=url;
+function openRSVP(){
+  window.location.href='https://docs.google.com/forms/d/1AykA9KQOhPqldyTVaUyB65kJe_d3vMGNAFbRXlGUWTg/viewform';
 }
 </script>
 </body>
